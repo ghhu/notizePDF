@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage{pdfpages}
+%\usepackage[paperwidth=630mm, paperheight=297mm,portrait,margin=0.1in]{geometry}
+\usepackage[paperwidth=630mm, paperheight=297mm,margin=0.1in]{geometry}
+
+\usepackage{tikzpagenodes}
+\usepackage{lipsum}
+\usepackage{background}
+
+\definecolor{notepadrule}{RGB}{217,244,244}
+
+\backgroundsetup{
+contents={%   
+  \begin{tikzpicture}
+    \foreach \fila in {0,...,99}
+    {
+      \draw [line width=1pt,color=notepadrule] 
+      (current page.west|-0,-\fila*24pt) -- ++(\paperwidth,0);
+    }
+%%%%%%%% for vertical line on each page %%%%%%%%%%%%%%%%%%%%%%%%
+%    \draw[overlay,red!70!black,line width=1pt]
+%      ([xshift=0pt]current page text area.west|-current page.north) --  
+%      ([xshift=0pt]current page text area.west|-current page.south);
+  \end{tikzpicture}%
+},
+scale=1,
+angle=0,
+opacity=1,
+hshift=0.3\paperwidth
+}
+
+\begin{document}
+%\includepdf[pages=-,offset=-100mm 0mm]{tmp.pdf}
+\includepdf[pages=-,offset=-210mm 0mm]{tmp.pdf}
+\end{document}
